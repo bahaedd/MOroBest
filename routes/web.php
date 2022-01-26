@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MoviesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::view('/', 'layouts.index');
-Route::view('/movie', 'layouts.show');
+Route::get('/', 'App\Http\Controllers\MoviesController@index')->name('movies.index');
+Route::get('/movies/{movie}', 'App\Http\Controllers\MoviesController@show')->name('movies.show');

@@ -7,15 +7,14 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
+    public function the_main_page_looks_good()
+    {
+        $response = $this->get(route('movies.index'));
+
+        // $response->assertStatus(200);
+
+        $response->assertSuccessful();
+        $response->assertSee('Popular Movies');
     }
 }
